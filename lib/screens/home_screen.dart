@@ -21,6 +21,10 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blueGrey, // Change the background color
+        selectedItemColor: Colors.white, // Change the color of the selected item
+        unselectedItemColor: Colors.grey, // Change the color of unselected items
+
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.timer), label: 'Rezo Libre'),
