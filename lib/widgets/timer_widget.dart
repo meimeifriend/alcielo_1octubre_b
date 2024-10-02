@@ -9,24 +9,30 @@ class TimerWidget extends StatefulWidget {
 }
 
 class _TimerWidgetState extends State<TimerWidget> {
-  int _seconds = 0;
+  int _seconds = 0; // Inicializa el contador en cero
   Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer(); // Inicia el temporizador al cargar el widget
+  }
 
   void _startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        _seconds++;
+        _seconds++; // Incrementa los segundos cada segundo
       });
     });
   }
 
   void _stopTimer() {
-    _timer?.cancel();
+    _timer?.cancel(); // Cancela el temporizador
   }
 
   @override
   void dispose() {
-    _stopTimer();
+    _stopTimer(); // Asegúrate de detener el temporizador al destruir el widget
     super.dispose();
   }
 
@@ -35,7 +41,7 @@ class _TimerWidgetState extends State<TimerWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Tiempo de Rezo: $_seconds segundos'),
+        Text('Tiempo de Rezo: $_seconds segundos', style: TextStyle(fontSize: 24)),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
