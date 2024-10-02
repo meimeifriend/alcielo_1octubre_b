@@ -1,28 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'screens/home_screen.dart'; // Assuming this is your main app screen
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Temporizador',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Temporizador')),
-        body: const Center(child: TimerWidget()),
-      ),
-    );
-  }
-}
-
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -32,54 +12,66 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: VideoIntro(),
+      home: VideoIntroScreen(),
     );
   }
 }
 
-class VideoIntro extends StatefulWidget {
+class VideoIntroScreen extends StatefulWidget {
   @override
-  _VideoIntroState createState() => _VideoIntroState();
+  _VideoIntroScreenState createState() => _VideoIntroScreenState();
 }
 
-class _VideoIntroState extends State<VideoIntro> {
+class _VideoIntroScreenState extends State<VideoIntroScreen> {
   late VideoPlayerController _controller;
+  bool _isVideoInitialized = false;
 
   @override
   void initState() {
     super.initState();
+
+    // Initialize the video player
     _controller = VideoPlayerController.asset('assets/intro_video.mp4')
       ..initialize().then((_) {
-        setState(() {}); // Actualiza el estado para que el video se muestre
-        _controller.play(); // Comienza a reproducir el video
-      });
+        setState(() {
+          _isVideoInitialized = true;
+        });
+        _controller.play(); // Play the video automatically
+        _controller.setLooping(false); // Ensure it doesn't loop
 
-    // Navegar a la pantalla principal cuando el video termina
-    _controller.addListener(() {
-      if (_controller.value.position == _controller.value.duration) {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => HomeScreen()));
-      }
-    });
+        // Navigate to the main screen when the video finishes
+        _controller.addListener(() {
+          if (_controller.value.position == _controller.value.duration) {
+            _navigateToHome();
+          }
+        });
+      });
   }
 
-import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+  void _navigateToHome() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => HomeScreen()), // HomeScreen is your main app screen
+    );
+  }
 
-void main() {
-  runApp(const RezoApp());
-}
-
-class RezoApp extends StatelessWidget {
-  const RezoApp({super.key});
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Rezo App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: _isVideoInitialized
+            ? AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              )
+            : CircularProgressIndicator(), // Show a loader until video initializes
       ),
-      home: const HomeScreen(),
     );
   }
 }

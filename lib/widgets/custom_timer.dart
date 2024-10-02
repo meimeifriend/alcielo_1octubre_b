@@ -8,7 +8,7 @@ class CustomTimer extends StatefulWidget {
 }
 
 class _CustomTimerState extends State<CustomTimer> {
-  int _start = 60; // Tiempo en segundos
+  int _start = 1; // Tiempo en segundos
   bool _isRunning = false;
   late final Timer _timer;
 
@@ -17,7 +17,7 @@ class _CustomTimerState extends State<CustomTimer> {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (_start > 0) {
         setState(() {
-          _start--;
+          _start++;
         });
       } else {
         _timer.cancel();
@@ -32,7 +32,7 @@ class _CustomTimerState extends State<CustomTimer> {
     _timer.cancel();
     setState(() {
       _isRunning = false;
-      _start = 60; // Reiniciar el tiempo
+      _start = 1; // Reiniciar el tiempo
     });
   }
 
