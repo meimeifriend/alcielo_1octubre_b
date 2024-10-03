@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'screens/home_screen.dart'; // Assuming this is your main app screen
+import 'screens/quiz_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -72,6 +73,19 @@ class _VideoIntroScreenState extends State<VideoIntroScreen> {
               )
             : CircularProgressIndicator(), // Show a loader until video initializes
       ),
+    );
+  }
+}
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Juego de Múltiple Choice',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: QuizScreen(),
     );
   }
 }
