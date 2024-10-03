@@ -9,14 +9,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Rezo App')),
+      appBar: AppBar(title: const Text('Al Cielo')),
       body: Container(
-        color: Colors.lightBlue[100],
+        color: const Color.fromARGB(255, 127, 193, 224),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/church_image.jpg'),
-            const Text('Bienvenido a la App de Rezo'),
+            const Text('Bienvenido a la App de Rezo.'),
+            const Text('Inspirada por Carlo Acutis.'),
           ],
         ),
       ),
