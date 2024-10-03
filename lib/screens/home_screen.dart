@@ -9,23 +9,52 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Al Cielo')),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80.0), // Ajusta la altura del AppBar
+        child: AppBar(
+          title: const Text('Al Cielo'),
+          centerTitle: true, // Centra el título
+        ),
+      ),
       body: Container(
         color: const Color.fromARGB(255, 127, 193, 224),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween, // Espacio entre los elementos
           children: [
-            Image.asset('assets/church_image.jpg'),
-            const Text('Bienvenido a la App de Rezo.'),
-            const Text('Inspirada por Carlo Acutis.'),
+            // Usamos Expanded para que la imagen ocupe todo el espacio disponible
+            Expanded(
+              child: Center( // Centrar la imagen
+                child: Image.asset(
+                  'assets/church_image.jpg',
+                  fit: BoxFit.cover, // Ajusta la imagen para que cubra todo el espacio
+                  width: double.infinity, // Asegura que la imagen ocupe todo el ancho
+                ),
+              ),
+            ),
+            // Usamos un Padding para separar el texto de la imagen
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  const Text(
+                    'Bienvenido a la Aplicación',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8), // Espacio entre los textos
+                  const Text(
+                    'inspirada por Carlo Acutis.',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blueGrey, // Change the background color
-        selectedItemColor: Colors.white, // Change the color of the selected item
-        unselectedItemColor: Colors.grey, // Change the color of unselected items
-
+        backgroundColor: Colors.blueGrey, // Cambia el color de fondo
+        selectedItemColor: Colors.white, // Color del item seleccionado
+        unselectedItemColor: Colors.grey, // Color de los items no seleccionados
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.timer), label: 'Rezo Libre'),
