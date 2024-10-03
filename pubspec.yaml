@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   video_player: ^2.3.0  # Verifica si hay una versión más reciente
+  flutter_credit_card:  · v4.0.0+
 
 
   # The following adds the Cupertino Icons font to your application.

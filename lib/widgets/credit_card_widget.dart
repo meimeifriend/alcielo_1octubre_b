@@ -1,20 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/flutter_credit_card.dart';
-
-class DonationsScreen extends StatelessWidget {
-  const DonationsScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Donaciones')),
-      body: const Center(
-        child: Text('Gracias por considerar una donación!'),
-      ),
+CreditCardWidget(
+      cardNumber: cardNumber,
+      expiryDate: expiryDate,
+      cardHolderName: cardHolderName,
+      cvvCode: cvvCode,
+      showBackView: isCvvFocused, //true when you want to show cvv(back) view
+      onCreditCardWidgetChange: (CreditCardBrand brand) {}, // Callback for anytime credit card brand is changed
+    ),
+        CreditCardWidget(
+        enableFloatingCard: true,
     );
-  }
-}
- CreditCardForm(
+     CreditCardForm(
       formKey: formKey, // Required 
       cardNumber: cardNumber, // Required
       expiryDate: expiryDate, // Required
