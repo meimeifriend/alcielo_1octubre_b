@@ -4,7 +4,7 @@ List<Question> questions = [
   Question(
     questionText: '¿Qué sacramento se recibe al nacer?',
     options: ['Bautismo', 'Comunión', 'Confirmación'],
-    correctAnswerIndex: 0,
+    correctAnswerIndex: 1,
   ),
   Question(
     questionText: '¿Qué sacramento es el cuerpo y la sangre de Cristo?',
