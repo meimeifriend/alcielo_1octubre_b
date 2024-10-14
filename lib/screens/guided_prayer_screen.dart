@@ -1,4 +1,6 @@
 import 'package:alcielo_1octubre_b/screens/magnificat_screen.dart';
+import 'package:alcielo_1octubre_b/screens/san_francisco_por_la_paz_screen.dart';
+import 'package:alcielo_1octubre_b/screens/veneremos_screen.dart';
 import 'package:alcielo_1octubre_b/screens/yo_confieso_screen.dart';
 import 'package:flutter/material.dart';
 import 'ave_maria_screen.dart'; // Asegúrate de que estos archivos existan
@@ -105,6 +107,26 @@ class GuidedPrayerScreen extends StatelessWidget {
               );
             },
             child: const Text('Magnificat'),
+          ),
+//SAN FRANCISCO POR LA PAZ
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SanFranciscoPorLaPazScreen()),
+              );
+            },
+            child: const Text('San Francisco por la Paz'),
+          ),
+//VENEREMOS
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const VeneremosScreen()),
+              );
+            },
+            child: const Text('Veneremos'),
           ),
         ],
       ),
