@@ -3,6 +3,7 @@ import 'ave_maria_screen.dart'; // Asegúrate de que estos archivos existan
 import 'padre_nuestro_screen.dart';
 import 'gloria_screen.dart';
 import 'angel_guarda_screen.dart';
+import 'credo_screen.dart';
 
 class GuidedPrayerScreen extends StatelessWidget {
   const GuidedPrayerScreen({super.key});
@@ -50,6 +51,16 @@ class GuidedPrayerScreen extends StatelessWidget {
               );
             },
             child: const Text('Angel de la Guarda'),
+          ),
+// CREDO
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CredoScreen()),
+              );
+            },
+            child: const Text('Credo'),
           ),
         ],
       ),
