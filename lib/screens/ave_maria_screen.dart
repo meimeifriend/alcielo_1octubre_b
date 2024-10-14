@@ -11,7 +11,7 @@ class AveMariaScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16.0), // Espaciado alrededor del texto
           child: Text(
-            'Ave María, llena eres de gracia…', // Texto de la oración
+            'Dios te salve, María. Llena eres de gracia. El Señor es contigo. Bendita tú eres entre todas las mujeres y bendito es el fruto de tu vientre, Jesús. Santa María, Madre de Dios, ruega por nosotros pecadores ahora y en la hora de nuestra muerte, Amén.', // Texto de la oración
             style: TextStyle(
               fontSize: 24, // Tamaño de fuente
               fontWeight: FontWeight.bold, // Negrita

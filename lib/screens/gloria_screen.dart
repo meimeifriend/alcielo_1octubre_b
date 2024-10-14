@@ -11,7 +11,7 @@ class GloriaScreen extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Text(
-            'Gloria al Padre, al Hijo y al Espíritu Santo…',
+            'Gloria al Padre, al Hijo y al Espíritu Santo, como era en un principio, ahora y siempre. Por los siglos de los siglos, Amén.',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
