@@ -1,3 +1,5 @@
+import 'package:alcielo_1octubre_b/screens/magnificat_screen.dart';
+import 'package:alcielo_1octubre_b/screens/yo_confieso_screen.dart';
 import 'package:flutter/material.dart';
 import 'ave_maria_screen.dart'; // Asegúrate de que estos archivos existan
 import 'padre_nuestro_screen.dart';
@@ -83,6 +85,26 @@ class GuidedPrayerScreen extends StatelessWidget {
               );
             },
             child: const Text('Cordero de Dios'),
+          ),
+//YO CONFIESO
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const YoConfiesoScreen()),
+              );
+            },
+            child: const Text('Yo Confieso'),
+          ),
+//MAGNIFICAT
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MagnificatScreen()),
+              );
+            },
+            child: const Text('Magnificat'),
           ),
         ],
       ),
