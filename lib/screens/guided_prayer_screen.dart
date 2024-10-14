@@ -1,5 +1,6 @@
 import 'package:alcielo_1octubre_b/screens/magnificat_screen.dart';
 import 'package:alcielo_1octubre_b/screens/san_francisco_por_la_paz_screen.dart';
+import 'package:alcielo_1octubre_b/screens/te_deum_screen.dart';
 import 'package:alcielo_1octubre_b/screens/veneremos_screen.dart';
 import 'package:alcielo_1octubre_b/screens/yo_confieso_screen.dart';
 import 'package:flutter/material.dart';
@@ -127,6 +128,16 @@ class GuidedPrayerScreen extends StatelessWidget {
               );
             },
             child: const Text('Veneremos'),
+          ),
+//TE DEUM
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TeDeumScreen()),
+              );
+            },
+            child: const Text('Te Deum'),
           ),
         ],
       ),
