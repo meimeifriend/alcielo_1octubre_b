@@ -15,7 +15,6 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/video_ganador.mp4');
   }
 
   @override
@@ -29,7 +28,12 @@ class _QuizScreenState extends State<QuizScreen> {
       setState(() {
         showVideo = true;
       });
-      _controller.play();
+      _controller = VideoPlayerController.asset('assets/video_ganador.mp4')
+        ..initialize().then((_) {
+          // Ensure the first frame is shown after the video is initialized
+          setState(() {});
+          _controller.play(); // Autoplay the video
+        });
       Future.delayed(Duration(seconds: 5), () {
         _controller.pause();
         _controller.seekTo(Duration.zero);
@@ -46,35 +50,53 @@ class _QuizScreenState extends State<QuizScreen> {
     }
   }
 
+  Text drawQuestion() {
+    return Text(
+      questions[currentQuestionIndex].questionText,
+      style: TextStyle(fontSize: 24),
+      textAlign: TextAlign.center,
+    );
+  }
+
+  List<Widget> drawOptions() {
+    return questions[currentQuestionIndex].options.asMap().entries.map((entry) {
+      int index = entry.key;
+      String option = entry.value;
+      return ElevatedButton(
+        onPressed: () => checkAnswer(index),
+        child: Text(option),
+      );
+    }).toList();
+  }
+
+  Column drawMainColumn() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        if (showVideo)
+          Container(
+              height: 250,
+              width:
+                  MediaQuery.of(context).size.width, // Full width of the screen
+              child: VideoPlayer(_controller))
+        else
+          drawQuestion(),
+        ...drawOptions()
+      ],
+    );
+  }
+
+  Center drawEnd() {
+    return Center(child: Text('¡Has terminado el juego!'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Juego de Múltiple Choice')),
       body: currentQuestionIndex < questions.length
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  questions[currentQuestionIndex].questionText,
-                  style: TextStyle(fontSize: 24),
-                  textAlign: TextAlign.center,
-                ),
-                ...questions[currentQuestionIndex].options.asMap().entries.map((entry) {
-                  int index = entry.key;
-                  String option = entry.value;
-                  return ElevatedButton(
-                    onPressed: () => checkAnswer(index),
-                    child: Text(option),
-                  );
-                }).toList(),
-                if (showVideo) 
-                  Container(
-                    height: 200,
-                    child: VideoPlayer(_controller),
-                  ),
-              ],
-            )
-          : Center(child: Text('¡Has terminado el juego!')),
+          ? drawMainColumn()
+          : drawEnd(),
     );
   }
 }
