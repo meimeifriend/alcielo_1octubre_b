@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const GuidedPrayerScreen()));
               break;
             case 5:
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const DonationsScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DonationsScreen()));
               break;
             case 6:
               Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen()));
