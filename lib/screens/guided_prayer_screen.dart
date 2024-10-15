@@ -1,4 +1,5 @@
 import 'package:alcielo_1octubre_b/screens/magnificat_screen.dart';
+import 'package:alcielo_1octubre_b/screens/oracion_carlo_acutis.dart';
 import 'package:alcielo_1octubre_b/screens/san_francisco_por_la_paz_screen.dart';
 import 'package:alcielo_1octubre_b/screens/te_deum_screen.dart';
 import 'package:alcielo_1octubre_b/screens/veneremos_screen.dart';
@@ -128,6 +129,16 @@ class GuidedPrayerScreen extends StatelessWidget {
               );
             },
             child: const Text('Veneremos'),
+          ),
+//ORACION A CARLO ACUTIS
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OracionCarloAcutis()),
+              );
+            },
+            child: const Text('Oración a Carlo Acutis'),
           ),
 //TE DEUM
           ElevatedButton(
