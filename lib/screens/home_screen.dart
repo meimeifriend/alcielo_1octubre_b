@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'guided_prayer_screen.dart';
 import 'donations_screen.dart';
 import 'free_prayer_screen.dart';
+import 'sobre_mi_screen.dart';
+import 'sobre_carlo_acutis_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -43,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8), // Espacio entre los textos
                   const Text(
-                    'inspirada por Carlo Acutis.',
+                    'inspirada en Carlo Acutis.',
                     style: TextStyle(fontSize: 18),
                   ),
                 ],
@@ -58,6 +60,8 @@ class HomeScreen extends StatelessWidget {
         unselectedItemColor: Colors.grey, // Color de los items no seleccionados
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Sobre Mí'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_2), label: 'Sobre Carlo Acutis'),
           BottomNavigationBarItem(icon: Icon(Icons.timer), label: 'Rezo Libre'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Rezo Guiado'),
           BottomNavigationBarItem(icon: Icon(Icons.monetization_on), label: 'Donaciones'),
@@ -70,15 +74,21 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
               break;
             case 1:
-              Navigator.push(context, MaterialPageRoute(builder: (context) => FreePrayerScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SobreMiScreen()));
               break;
             case 2:
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const GuidedPrayerScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SobreCarloAcutisScreen()));
               break;
             case 3:
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const DonationsScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => FreePrayerScreen()));
               break;
             case 4:
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const GuidedPrayerScreen()));
+              break;
+            case 5:
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const DonationsScreen()));
+              break;
+            case 6:
               Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen()));
               break;
           }
