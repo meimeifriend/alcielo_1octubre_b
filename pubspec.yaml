@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   video_player: ^2.3.0  # Verifica si hay una versión más reciente
+  audioplayers: ^6.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -60,6 +61,17 @@ flutter:
     - assets/video_ganador.mp4
     - assets/maria_zuccarelli_foto.jpeg
     - assets/carlo_acutis_foto.jpg
+    - assets/audios/acto_contricion.mp3
+    - assets/audios/ave_maria.mp3
+    - assets/audios/gloria.mp3
+    - assets/audios/jaculatoria_final.mp3
+    - assets/audios/misterios_dolorosos.mp3
+    - assets/audios/misterios_gloriosos.mp3
+    - assets/audios/misterios_gozosos.mp3
+    - assets/audios/misterios_luminosos.mp3
+    - assets/audios/padre_nuestro.mp3
+    - assets/audios/salve_a_la_virgen.mp3
+    - assets/audios/señal_de_la_cruz.mp3
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
