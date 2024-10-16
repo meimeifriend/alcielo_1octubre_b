@@ -1,10 +1,13 @@
 import 'package:alcielo_1octubre_b/screens/quiz_screen.dart';
+import 'package:alcielo_1octubre_b/screens/rosario_screen.dart';
 import 'package:flutter/material.dart';
 import 'guided_prayer_screen.dart';
 import 'donations_screen.dart';
 import 'free_prayer_screen.dart';
 import 'sobre_mi_screen.dart';
+import 'rosario_screen.dart';
 import 'sobre_carlo_acutis_screen.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -65,6 +68,7 @@ class HomeScreen extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.timer), label: 'Rezo Libre'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Rezo Guiado'),
           BottomNavigationBarItem(icon: Icon(Icons.monetization_on), label: 'Donaciones'),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Santo Rosario'),
           BottomNavigationBarItem(icon: Icon(Icons.games), label: 'Juegos'),
           
         ],
@@ -89,6 +93,9 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(context, MaterialPageRoute(builder: (context) => DonationsScreen()));
               break;
             case 6:
+              Navigator.push(context, MaterialPageRoute(builder: (context) => RosarioScreen()));
+              break;
+            case 7:
               Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen()));
               break;
           }
