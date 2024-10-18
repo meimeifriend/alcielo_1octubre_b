@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.alcielo_1octubre_b"
-    compileSdk 33//= flutter.compileSdkVersion
+    compileSdk flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

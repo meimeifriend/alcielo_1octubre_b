@@ -1,17 +1,18 @@
-import 'package:alcielo_1octubre_b/screens/quiz_screen.dart';
-import 'package:alcielo_1octubre_b/screens/rosario_screen.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'quiz_screen.dart';
+import 'rosario_screen.dart';
 import 'guided_prayer_screen.dart';
 import 'donations_screen.dart';
 import 'free_prayer_screen.dart';
 import 'sobre_mi_screen.dart';
-import 'rosario_screen.dart';
 import 'sobre_carlo_acutis_screen.dart';
-
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +55,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            // Embed the BannerAd widget
+            BannerAdWidget(),
           ],
         ),
       ),
@@ -102,5 +105,57 @@ class HomeScreen extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class BannerAdWidget extends StatefulWidget {
+  @override
+  _BannerAdWidgetState createState() => _BannerAdWidgetState();
+}
+
+class _BannerAdWidgetState extends State<BannerAdWidget> {
+  late BannerAd _bannerAd;
+  bool _isAdLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _bannerAd = BannerAd(
+      adUnitId: Platform.isAndroid ? 'ca-app-pub-3940256099942544/6300978111' : 'ca-app-pub-3940256099942544/2934735716',
+  
+      size: AdSize.banner,
+      request: AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) {
+          print('Ad loaded');
+          setState(() {
+            _isAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          print('Ad failed to load: $error');
+          ad.dispose();
+        },
+      ),
+    )..load();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _isAdLoaded
+        ? Container(
+            alignment: Alignment.center,
+            child: AdWidget(ad: _bannerAd),
+            width: _bannerAd.size.width.toDouble(),
+            height: _bannerAd.size.height.toDouble(),
+          )
+        : SizedBox.shrink(); // If the ad is not loaded, don't show anything
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
   }
 }
