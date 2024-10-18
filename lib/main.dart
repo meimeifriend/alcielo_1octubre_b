@@ -3,7 +3,36 @@ import 'package:video_player/video_player.dart';
 import 'screens/home_screen.dart'; // Assuming this is your main app screen
 
 void main() => runApp(MyApp());
-
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
+  BannerAd? _bannerAd;
+  bool _isLoaded = false;
+   final adUnitId = Platform.isAndroid
+    ? 'ca-app-pub-3940256099942544/6300978111'
+    : 'ca-app-pub-3940256099942544/2934735716';
+     void loadAd() {
+    _bannerAd = BannerAd(
+      adUnitId: adUnitId,
+      request: const AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        // Called when an ad is successfully received.
+        onAdLoaded: (ad) {
+          debugPrint('$ad loaded.');
+          setState(() {
+            _isLoaded = true;
+          });
+        },
+        // Called when an ad request failed.
+        onAdFailedToLoad: (ad, err) {
+          debugPrint('BannerAd failed to load: $error');
+          // Dispose the ad here to free resources.
+          ad.dispose();
+        },
+      ),
+    )..load();
+  }
+}//CODIGO AGREGADO POR MI PARA EL BANNER DE 5 A 35
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +50,18 @@ class VideoIntroScreen extends StatefulWidget {
   @override
   _VideoIntroScreenState createState() => _VideoIntroScreenState();
 }
+class MyApp extends StatefulWidget {
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    // Load ads.
+  }
+}// TEXTO MODIFICADO POR MI, DE LA 26 A LA 37, CORRESPONDIENTE A ANUNCIO
 
 class _VideoIntroScreenState extends State<VideoIntroScreen> {
   late VideoPlayerController _controller;
