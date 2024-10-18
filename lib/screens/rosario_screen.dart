@@ -5,17 +5,17 @@ class RosarioScreen extends StatelessWidget {
   const RosarioScreen({super.key});
 
   static const List<String> audioFiles = [
-    'assets/audios/acto_contricion.mp3',
-    'assets/audios/ave_maria.mp3',
-    'assets/audios/gloria.mp3',
-    'assets/audios/jaculatoria_final.mp3',
-    'assets/audios/misterios_dolorosos.mp3',
-    'assets/audios/misterios_gloriosos.mp3',
-    'assets/audios/misterios_gozosos.mp3',
-    'assets/audios/misterios_luminosos.mp3',
-    'assets/audios/padre_nuestro.mp3',
-    'assets/audios/salve_la_virgen.mp3',
-    'assets/audios/señal_de_la_cruz.mp3',
+    'audios/acto_contricion.mp3',
+    'audios/ave_maria.mp3',
+    'audios/gloria.mp3',
+    'audios/jaculatoria_final.mp3',
+    'audios/misterios_dolorosos.mp3',
+    'audios/misterios_gloriosos.mp3',
+    'audios/misterios_gozosos.mp3',
+    'audios/misterios_luminosos.mp3',
+    'audios/padre_nuestro.mp3',
+    'audios/salve_la_virgen.mp3',
+    'audios/señal_de_la_cruz.mp3',
   ];
 
   @override
