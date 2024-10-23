@@ -62,8 +62,8 @@ class _DonationsScreenState extends State<DonationsScreen> {
               ),
               SizedBox(height: 30), // Espacio antes del texto
               Text(
-                'Si quiere realizar una transferencia, puede hacerlo con los siguientes datos:',
-                style: TextStyle(fontSize: 22), // Estilo del texto
+                'Si quiere realizar una transferencia para ayudar a seguir desarrollando este tipo de aplicaciones, puede hacerlo con los siguientes datos:',
+                style: TextStyle(fontSize: 20), // Estilo del texto
               ),
               SizedBox(height: 10), // Espacio adicional
               Text(

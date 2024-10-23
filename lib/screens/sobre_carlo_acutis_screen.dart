@@ -23,7 +23,7 @@ class SobreCarloAcutisScreen extends StatelessWidget {
             const Text(
               'Su paso por este mundo fue muy breve: el flamante Beato Carlo Acutis fue el único hijo de Antonia Salzano y Andra Acutis, nació el 3 de mayo de 1991 y murió el 12 de octubre de 2006. Sin embargo, en los 15 años que vivió en Milán, dejó huellas imborrables en cada persona que lo conoció y en las que ahora, tras haber sido beatificado por el papa Francisco, lo descubren a diario a través de su legado en internet.',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),

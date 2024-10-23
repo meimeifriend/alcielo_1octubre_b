@@ -23,7 +23,7 @@ class SobreMiScreen extends StatelessWidget {
             const Text(
               'Mi nombre es María Nazarena Zuccarelli. Soy una psicóloga de La Plata admiradora de la vida de Carlo Acutis y en su uso de la tecnología a favor de la fe. Desde hace algunos años me vengo especializando en temas de tecnología y comunicación digital. Quise que mi primer aplicación sea en honor a Carlo Acutis puesto que su vida y obra me parecen maravillosas. Espero aportar un granito de arena para que se conozca al Benerable Carlo Acutis y contenido religioso en general.',
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
