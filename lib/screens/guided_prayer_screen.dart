@@ -1,9 +1,9 @@
-import 'package:alcielo_1octubre_b/screens/magnificat_screen.dart';
-import 'package:alcielo_1octubre_b/screens/oracion_carlo_acutis.dart';
-import 'package:alcielo_1octubre_b/screens/san_francisco_por_la_paz_screen.dart';
-import 'package:alcielo_1octubre_b/screens/te_deum_screen.dart';
-import 'package:alcielo_1octubre_b/screens/veneremos_screen.dart';
-import 'package:alcielo_1octubre_b/screens/yo_confieso_screen.dart';
+import 'package:alcielo/screens/magnificat_screen.dart';
+import 'package:alcielo/screens/oracion_carlo_acutis.dart';
+import 'package:alcielo/screens/san_francisco_por_la_paz_screen.dart';
+import 'package:alcielo/screens/te_deum_screen.dart';
+import 'package:alcielo/screens/veneremos_screen.dart';
+import 'package:alcielo/screens/yo_confieso_screen.dart';
 import 'package:flutter/material.dart';
 import 'ave_maria_screen.dart'; // Asegúrate de que estos archivos existan
 import 'padre_nuestro_screen.dart';
