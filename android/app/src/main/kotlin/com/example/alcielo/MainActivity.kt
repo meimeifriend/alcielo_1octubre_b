@@ -1,4 +1,4 @@
-package com.example.alcielo
+package com.zuccarelli.alcielo
 
 import io.flutter.embedding.android.FlutterActivity
 
